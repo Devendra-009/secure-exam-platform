@@ -221,10 +221,14 @@ async function createStudentAccount({ name, email, password, examId, seriesId, s
   } finally { client.release(); }
 }
 
-app.get('/api/health', asyncRoute(async (_req, res) => {
-  await query('SELECT 1');
-  res.json({ ok: true, database: 'connected', timestamp: new Date().toISOString(), version: '3.1.0' });
-}));
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({
+    ok: true,
+    service: 'secure-exam-api',
+    status: 'healthy',
+    timestamp: new Date().toISOString()
+  });
+});
 
 app.get('/api/public/exams', asyncRoute(async (_req, res) => {
   const { rows } = await query(
