@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "electron": "44.4.3",
-    "wait-on": "8.0.1"
+    "wait-on": "9.1.0"
   },
   "engines": {
     "node": ">=22 <25"
