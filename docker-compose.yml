@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: secure_exam_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-secure_exam_platform}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your local .env file}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - secure_exam_pgdata:/var/lib/postgresql/data
+
+volumes:
+  secure_exam_pgdata:

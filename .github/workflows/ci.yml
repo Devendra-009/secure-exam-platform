@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+      - run: npm ci
+      - run: npm run validate
+      - run: npm audit --audit-level=high
+      - run: npm install --prefix server
+      - run: npm audit --prefix server --audit-level=high
+      - run: npm install --prefix client
+      - run: npm audit --prefix client --audit-level=high
+      - run: npm install --prefix electron-app
+      - run: npm audit --prefix electron-app --audit-level=high
+      - run: npm run build

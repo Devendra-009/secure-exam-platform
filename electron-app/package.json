@@ -1,0 +1,21 @@
+{
+  "name": "secure-exam-desktop",
+  "version": "3.1.0",
+  "private": true,
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "wait-on http://127.0.0.1:5173 && electron .",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "44.4.3",
+    "wait-on": "8.0.1"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "dependencies": {
+    "secure-exam-platform": "file:.."
+  }
+}

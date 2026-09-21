@@ -1,0 +1,26 @@
+{
+  "name": "secure-exam-server",
+  "version": "3.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "node src/migrate.js",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "3.0.3",
+    "cors": "2.8.6",
+    "dotenv": "17.4.2",
+    "express": "4.22.3",
+    "express-rate-limit": "8.7.0",
+    "helmet": "8.3.0",
+    "jsonwebtoken": "9.0.2",
+    "pg": "8.23.0",
+    "secure-exam-platform": "file:.."
+  },
+  "engines": {
+    "node": ">=22 <25"
+  }
+}
