@@ -15,6 +15,9 @@ if (!Number.isInteger(poolMax) || poolMax < 1 || poolMax > 50) {
 
 export const pool = new pg.Pool({
   connectionString: databaseUrl,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   max: poolMax,
   idleTimeoutMillis: 30_000,
   connectionTimeoutMillis: 5_000,
