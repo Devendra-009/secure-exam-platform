@@ -9,7 +9,7 @@
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "44.4.3",
+    "electron": "44.8.0",
     "wait-on": "8.0.1"
   },
   "engines": {
